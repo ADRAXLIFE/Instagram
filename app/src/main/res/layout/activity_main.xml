@@ -112,7 +112,7 @@
 
         <ListView
             android:layout_below="@+id/mensaje"
-            android:id="@+id/lstChatsIg"
+            android:id="@+id/Cratos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </RelativeLayout>

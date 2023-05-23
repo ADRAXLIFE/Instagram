@@ -2,6 +2,7 @@ package com.example.instagram;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,14 +17,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    ChatsAdapter adapterComp;
-    ListView lstChatsIg;
+    ChatsAdapter adapter1;
+    ListView Cratos;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lstChatsIg = (ListView)findViewById(R.id.lstChatsIg);
+        Cratos = (ListView)findViewById(R.id.Cratos);
 
         //Adapter Complejo
         Bundle b = getIntent().getExtras();
@@ -31,29 +33,29 @@ public class MainActivity extends AppCompatActivity {
             Chats chat = new Chats().restoreBundle(b);
             List<Chats> chats = LlenarListViewCompuest();
             chats.add(chat);
-            adapterComp = new ChatsAdapter(
+            adapter1 = new ChatsAdapter(
                     getApplicationContext(),
                     chats
             );
-            lstChatsIg.setAdapter(adapterComp);
+            Cratos.setAdapter(adapter1);
         }
         else{
-            adapterComp = new ChatsAdapter(
+            adapter1 = new ChatsAdapter(
               getApplicationContext(),
               LlenarListViewCompuest()
             );
         }
-    lstChatsIg.setAdapter(adapterComp);
+    Cratos.setAdapter(adapter1);
     }
 
     private List<Chats> LlenarListViewCompuest() {
         List<Chats> chats = new ArrayList<Chats>();
-        chats.add(new Chats(R.drawable.ic_launcher_background,"jose pablo","Carita triste","2 h"));
-        chats.add(new Chats(R.drawable.ic_launcher_background,"Anna Patricia","Hola","8 h"));
-        chats.add(new Chats(R.drawable.ic_launcher_background,"Antonio Barrios","Hola","3 h"));
-        chats.add(new Chats(R.drawable.ic_launcher_background,"Ernesto Mora","Envió un reel","8 h"));
-        chats.add(new Chats(R.drawable.ic_launcher_background,"Madelaine","hola","8 h"));
-        chats.add(new Chats(R.drawable.ic_launcher_background,"peter.w28","Visto","10 h"));
+        chats.add(new Chats(R.drawable.ic_launcher_background,"Carlos Sánchez","Hola Como Hacemos Para la Tareas","50 Min"));
+        chats.add(new Chats(R.drawable.ic_launcher_background,"Juan Carlos UTP","Comos Estas","1 H"));
+        chats.add(new Chats(R.drawable.ic_launcher_background,"Antonio Zamora","Te Quedaste","3 H"));
+        chats.add(new Chats(R.drawable.ic_launcher_background,"Carlos Oviedo","Envió un reel","8 H"));
+        chats.add(new Chats(R.drawable.ic_launcher_background,"Daphne","Hola Corazon","8 H"));
+        chats.add(new Chats(R.drawable.ic_launcher_background,"Peter","MAMAGUEVO DIGO GLUP GLUP GLUP","10 H"));
 
         return chats;
     }
